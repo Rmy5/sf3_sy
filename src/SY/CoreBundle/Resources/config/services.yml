@@ -1,0 +1,3 @@
+services:
+    sy_core.adverts:
+        class: SY\CoreBundle\Adverts\SYAdverts

@@ -1,0 +1,19 @@
+services:
+    sy_platform.antispam:
+          class: SY\PlatformBundle\Antispam\SYAntispam
+          arguments: # Tableau d'arguments ( bool | string | num | %param% | @service )
+              - "@mailer" # Un autre service
+              - %locale% # Un paramètre de config
+              - 50 # Un nombre
+
+    sy_platform.email.application_mailer:
+          class: SY\PlatformBundle\Email\ApplicationMailer
+          arguments:
+              - "@mailer"
+
+    sy_platform.doctrine_listener.application_creation:
+          class: SY\PlatformBundle\DoctrineListener\ApplicationCreationListener
+          arguments:
+              - "@sy_platform.email.application_mailer"
+          tags:
+              - { name: doctrine.event_listener, event: postPersist }

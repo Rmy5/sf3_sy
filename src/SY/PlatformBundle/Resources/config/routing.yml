@@ -1,0 +1,38 @@
+sy_platform_home:
+    path:       /{page}
+    defaults:
+        _controller: SYPlatformBundle:Advert:index
+        page:        1
+    requirements:
+        page: \d*
+
+sy_platform_view:
+    path:       /advert/{id}
+    defaults:
+        _controller: SYPlatformBundle:Advert:view
+    requirements:
+        id: \d+
+
+sy_platform_add:
+    path:       /add
+    defaults:
+        _controller: SYPlatformBundle:Advert:add
+
+sy_platform_edit:
+    path:       /edit/{id}
+    defaults:
+        _controller: SYPlatformBundle:Advert:edit
+    requirements:
+        id: \d+
+
+sy_platform_delete:
+    path:       /delete/{id}
+    defaults:
+        _controller: SYPlatformBundle:Advert:delete
+    requirements:
+        id: \d+
+
+sy_platform_test:
+    path:       /test
+    defaults:
+        _controller: SYPlatformBundle:Advert:test

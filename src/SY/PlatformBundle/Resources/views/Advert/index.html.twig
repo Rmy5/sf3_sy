@@ -1,0 +1,36 @@
+{% extends '@SYPlatform/layout.html.twig' %}
+
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block syplatform_body %}
+
+    <h2>Liste des annonces</h2>
+
+    <ul>
+        {% for advert in listAdverts %}
+            <li>
+                <a href="{{ path('sy_platform_view', {'id': advert.id}) }}">
+                    {{ advert.title }}
+                </a>
+                par {{ advert.author }},
+                le {{ advert.date|date('d/m/Y') }}
+            </li>
+        {% else %}
+            <li>Pas (encore !) d'annonces</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="pagination">
+
+        {% for i in 1..pages %}
+
+            <li {% if i == page %} class="active" {% endif %}>
+                <a href="{{ path('sy_platform_home', {page: i}) }}">{{ i }}</a>
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+
+{% endblock %}

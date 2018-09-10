@@ -1,0 +1,7 @@
+sy_core:
+    resource: "@SYCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sy_platform:
+    resource: "@SYPlatformBundle/Resources/config/routing.yml"
+    prefix:   /platform
